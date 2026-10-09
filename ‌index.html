@@ -1,0 +1,276 @@
+<title>Usama & Komal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a sealed pair of doors opens onto one long, centred invitation scroll over a faint star lattice. */
+:root {
+  --ink: #0a1d1a;
+  --ink-2: #0f2e29;
+  --gold: #d6b26b;
+  --gold-deep: #a77f3f;
+  --ivory: #f2e9d4;
+  --wax: #7d2a38;
+  --muted: #b9b39f;
+  --line: rgba(214,178,107,.28);
+  --display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+  --script: "Aref Ruqaa", "Noto Naskh Arabic", "Times New Roman", serif;
+  --body: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --lattice: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23d6b26b' stroke-opacity='.16' stroke-width='1'%3E%3Crect x='24' y='24' width='40' height='40'/%3E%3Crect x='24' y='24' width='40' height='40' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html.sealed, html.sealed body { overflow: hidden; height: 100%; }
+body {
+  background: var(--ink);
+  background-image: var(--lattice);
+  color: var(--ivory);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 640px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.eyebrow { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); font-weight: 400; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Doors ---------- */
+.cover { position: fixed; inset: 0; z-index: 50; display: flex; }
+.cover.gone { display: none; }
+.door { flex: 1 1 50%; background: var(--ink-2); background-image: var(--lattice); position: relative; transition: transform 1.5s cubic-bezier(.7,0,.2,1); }
+.door.l { border-right: 1px solid var(--gold); }
+.door.r { border-left: 1px solid var(--gold); }
+.door::after { content: ""; position: absolute; inset: 14px; border: 1px solid var(--line); pointer-events: none; }
+.cover.open .door.l { transform: translateX(-101%); }
+.cover.open .door.r { transform: translateX(101%); }
+.seal-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding-inline: 16px; text-align: center; transition: opacity .5s ease, transform .8s ease; }
+.cover.open .seal-wrap { opacity: 0; transform: scale(.85); pointer-events: none; }
+.seal { width: 118px; height: 118px; border-radius: 50%; border: 0; cursor: pointer; background: radial-gradient(circle at 35% 30%, #b04656, var(--wax) 55%, #531a25); color: var(--gold); box-shadow: 0 0 0 3px var(--gold-deep), 0 0 0 5px var(--ink-2), 0 14px 40px rgba(0,0,0,.55); font-family: var(--display); font-style: italic; font-size: 1.9rem; display: grid; place-items: center; transition: transform .3s ease; animation: pulse 2.8s ease-in-out infinite; }
+.seal:hover { transform: scale(1.06); }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 3px var(--gold-deep), 0 0 0 5px var(--ink-2), 0 14px 40px rgba(0,0,0,.55), 0 0 0 5px rgba(214,178,107,0); } 50% { box-shadow: 0 0 0 3px var(--gold-deep), 0 0 0 5px var(--ink-2), 0 14px 40px rgba(0,0,0,.55), 0 0 0 18px rgba(214,178,107,.12); } }
+.cover-note { font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.cover-names { font-family: var(--display); font-style: italic; font-size: 1.4rem; color: var(--ivory); }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 72px 56px; gap: 18px; }
+.bismillah { font-family: var(--script); font-size: clamp(1.7rem, 7vw, 2.4rem); color: var(--gold); line-height: 1.9; direction: rtl; }
+.intro { max-width: 30ch; color: var(--muted); font-size: 1rem; }
+.names { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(3rem, 15vw, 6rem); line-height: .98; margin: 6px 0; text-wrap: balance; }
+.names .and { display: block; font-size: .32em; font-style: normal; letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-block: 10px; font-family: var(--body); font-weight: 300; }
+.names .n { background: linear-gradient(180deg, #f6e3b4, var(--gold) 55%, var(--gold-deep)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.rule { width: 160px; height: 14px; color: var(--gold); }
+.big-date { font-family: var(--display); font-size: clamp(1.35rem, 5vw, 1.8rem); font-weight: 500; letter-spacing: .02em; }
+.sub { color: var(--muted); font-size: .95rem; }
+
+.parents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; width: 100%; max-width: 480px; }
+.parents p { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.parents b { font-family: var(--display); font-weight: 500; font-size: 1.15rem; }
+.parents span { font-size: .82rem; color: var(--muted); }
+@media (max-width: 420px) { .parents { grid-template-columns: 1fr; } }
+
+/* ---------- Countdown ---------- */
+.count { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; max-width: 440px; margin-top: 10px; border-block: 1px solid var(--line); }
+.count div { padding-block: 16px; display: flex; flex-direction: column; gap: 2px; align-items: center; }
+.count div + div { border-left: 1px solid var(--line); }
+.count b { font-family: var(--display); font-weight: 500; font-size: clamp(1.8rem, 8vw, 2.5rem); line-height: 1; font-variant-numeric: tabular-nums; color: var(--ivory); }
+.count span { font-size: .66rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); }
+.count-msg { min-height: 1.4em; font-size: .9rem; color: var(--muted); }
+
+/* ---------- Sections ---------- */
+section.block { width: 100%; padding-block: 56px; border-top: 1px solid var(--line); gap: 14px; }
+h2 { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(1.9rem, 7vw, 2.6rem); margin: 0; text-wrap: balance; }
+.events { width: 100%; display: flex; flex-direction: column; margin-top: 18px; text-align: left; }
+.ev { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 20px; padding-block: 24px; border-top: 1px solid var(--line); align-items: start; }
+.ev:last-child { border-bottom: 1px solid var(--line); }
+.ev .day { text-align: center; }
+.ev .day b { display: block; font-family: var(--display); font-size: 3rem; line-height: 1; font-weight: 500; color: var(--gold); font-variant-numeric: tabular-nums; }
+.ev .day span { font-size: .68rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.ev h3 { margin: 0 0 4px; font-family: var(--display); font-weight: 500; font-size: 1.45rem; }
+.ev p { margin: 0; color: var(--muted); font-size: .95rem; }
+.ev .time { color: var(--ivory); font-weight: 400; }
+
+.venue-name { font-family: var(--display); font-size: 1.5rem; font-weight: 500; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; font-weight: 400; background: transparent; cursor: pointer; font-family: var(--body); transition: background .25s ease, color .25s ease; }
+.btn:hover { background: var(--gold); color: var(--ink); }
+.btn.solid { background: var(--gold); color: var(--ink); }
+.btn.solid:hover { background: var(--ivory); border-color: var(--ivory); }
+
+/* ---------- RSVP ---------- */
+.rsvp { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 14px; margin-top: 10px; text-align: left; }
+.rsvp label { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); display: flex; flex-direction: column; gap: 8px; }
+.rsvp input, .rsvp select { background: transparent; color: var(--ivory); border: 0; border-bottom: 1px solid var(--gold); padding: 10px 2px; font: inherit; font-size: 1.05rem; letter-spacing: 0; text-transform: none; border-radius: 0; }
+.rsvp select option { background: var(--ink-2); color: var(--ivory); }
+.rsvp .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.rsvp .row .btn { flex: 1 1 160px; }
+.fine { font-size: .8rem; color: var(--muted); }
+
+footer { width: 100%; padding-block: 56px 72px; border-top: 1px solid var(--line); gap: 10px; }
+footer .fam { font-family: var(--display); font-style: italic; font-size: 1.5rem; }
+
+/* entrance */
+.rise { animation: rise 1s ease both; }
+.rise.d1 { animation-delay: .15s; } .rise.d2 { animation-delay: .35s; } .rise.d3 { animation-delay: .55s; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .door, .seal-wrap { transition-duration: .01s; }
+  .seal, .rise { animation: none; }
+  html { scroll-behavior: auto; }
+}
+@media (max-width: 420px) { .ev { grid-template-columns: 72px minmax(0, 1fr); gap: 14px; } .ev .day b { font-size: 2.4rem; } }
+</style>
+
+<!-- Doors -->
+<div class="cover" id="cover">
+  <div class="door l"></div>
+  <div class="door r"></div>
+  <div class="seal-wrap">
+    <div class="cover-note">You are invited</div>
+    <button class="seal" id="open" type="button" aria-label="Open the invitation">U&amp;K</button>
+    <div class="cover-names">Usama &amp; Komal</div>
+    <div class="cover-note">Tap the seal to open</div>
+  </div>
+</div>
+
+<main class="wrap">
+  <header class="wrap hero">
+    <div class="bismillah rise" lang="ur">بسم اللہ الرحمٰن الرحیم</div>
+    <p class="intro rise d1" style="margin:0">With joyful hearts, we invite you to be part of the celebration of</p>
+    <h1 class="names rise d2" style="font-weight:400">
+      <span class="n">Usama</span>
+      <span class="and">weds</span>
+      <span class="n">Komal</span>
+    </h1>
+    <svg class="rule rise d3" viewBox="0 0 160 14" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 7h66M94 7h66"/><path d="M80 1l6 6-6 6-6-6z"/><circle cx="68" cy="7" r="1.5" fill="currentColor"/><circle cx="92" cy="7" r="1.5" fill="currentColor"/></svg>
+    <div class="parents rise d3">
+      <p><b>Usama Faisal</b><span>son of Ch Mushrraf Ali</span></p>
+      <p><b>Komal Fatima</b><span>daughter of Ch Shahid Saleem</span></p>
+    </div>
+    <div class="big-date rise d3">Thursday, 29 October 2026</div>
+    <div class="sub rise d3">Finally the wait is over, the date has been fixed</div>
+
+    <div class="count rise d3" id="count" role="timer" aria-live="off">
+      <div><b id="cd-d">00</b><span>Days</span></div>
+      <div><b id="cd-h">00</b><span>Hours</span></div>
+      <div><b id="cd-m">00</b><span>Mins</span></div>
+      <div><b id="cd-s">00</b><span>Secs</span></div>
+    </div>
+    <div class="count-msg" id="count-msg"></div>
+  </header>
+
+  <section class="block wrap">
+    <div class="eyebrow">The celebrations</div>
+    <h2>Two days of joy</h2>
+    <div class="events">
+      <div class="ev">
+        <div class="day"><b>29</b><span>Thu · Oct</span></div>
+        <div><h3>Mehndi</h3><p><span class="time">6:00 pm</span><br>Khawaja Garden. Get ready for fun and music.</p></div>
+      </div>
+      <div class="ev">
+        <div class="day"><b>30</b><span>Fri · Oct</span></div>
+        <div><h3>Walima</h3><p><span class="time">1:00 pm</span><br>Ahmed Marquee, Satellite Town, Jhang. Lots of photographs and lunch together.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="eyebrow">The venue</div>
+    <h2>Where to find us</h2>
+    <div class="venue-name">Khawaja Garden</div>
+    <p class="sub" style="margin:0;max-width:34ch">Mehndi, Thursday 29 October, 6:00 pm</p>
+    <a class="btn" style="margin-top:6px" href="https://www.google.com/maps/search/?api=1&amp;query=Khawaja+Garden+Jhang" target="_blank" rel="noopener">Open in Maps</a>
+    <div class="venue-name" style="margin-top:28px">Ahmed Marquee</div>
+    <p class="sub" style="margin:0;max-width:34ch">Walima, Friday 30 October, 1:00 pm<br>F Block, Satellite Town, Jhang</p>
+    <a class="btn" style="margin-top:6px" href="https://www.google.com/maps/search/?api=1&amp;query=Ahmed+Marquee+Satellite+Town+Jhang" target="_blank" rel="noopener">Open in Maps</a>
+  </section>
+
+  <section class="block wrap">
+    <div class="eyebrow">Kindly reply</div>
+    <h2>Will you join us?</h2>
+    <p class="sub" style="margin:0;max-width:34ch">Let us know you are coming. Your reply opens in WhatsApp, ready to send.</p>
+    <form class="rsvp" id="rsvp" autocomplete="off">
+      <label for="guest-name">Your name
+        <input id="guest-name" type="text" placeholder="e.g. Hassan Raza">
+      </label>
+      <label for="guest-count">Guests attending
+        <select id="guest-count">
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+        </select>
+      </label>
+      <div class="row">
+        <a class="btn solid" id="yes" href="#rsvp" target="_blank" rel="noopener">I will attend</a>
+        <a class="btn" id="no" href="#rsvp" target="_blank" rel="noopener">Cannot make it</a>
+      </div>
+    </form>
+  </section>
+
+  <footer class="wrap">
+    <div class="eyebrow">Invitation by</div>
+    <div class="fam">Yasir Bilal</div>
+    <div class="fine">+92 311 1200979</div>
+    <div class="fine">Cheers to love, laughter and happily ever after.</div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  /* Edit these to change the invitation details. */
+  var CONFIG = {
+    target: "2026-10-29T18:00:00+05:00",
+    whatsapp: "923111200979",
+    couple: "Usama & Komal"
+  };
+
+  var root = document.documentElement;
+  var cover = document.getElementById("cover");
+  root.classList.add("sealed");
+
+  function openDoors() {
+    cover.classList.add("open");
+    root.classList.remove("sealed");
+    setTimeout(function () { cover.classList.add("gone"); }, 1600);
+  }
+  document.getElementById("open").addEventListener("click", openDoors);
+
+  /* Countdown */
+  var ids = { d: "cd-d", h: "cd-h", m: "cd-m", s: "cd-s" };
+  var msg = document.getElementById("count-msg");
+  var end = new Date(CONFIG.target).getTime();
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function tick() {
+    var left = end - Date.now();
+    if (left <= 0) {
+      Object.keys(ids).forEach(function (k) { document.getElementById(ids[k]).textContent = "00"; });
+      msg.textContent = "The celebrations have begun. Welcome.";
+      return;
+    }
+    var s = Math.floor(left / 1000);
+    document.getElementById(ids.d).textContent = pad(Math.floor(s / 86400));
+    document.getElementById(ids.h).textContent = pad(Math.floor(s % 86400 / 3600));
+    document.getElementById(ids.m).textContent = pad(Math.floor(s % 3600 / 60));
+    document.getElementById(ids.s).textContent = pad(s % 60);
+    msg.textContent = "until the Mehndi";
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* RSVP links */
+  var nameEl = document.getElementById("guest-name");
+  var countEl = document.getElementById("guest-count");
+  var yes = document.getElementById("yes");
+  var no = document.getElementById("no");
+  function link(text) { return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
+  function update() {
+    var who = nameEl.value.trim() || "A guest";
+    var n = countEl.value;
+    yes.href = link(who + " here. We will attend the wedding of " + CONFIG.couple + ". Guests: " + n + ".");
+    no.href = link(who + " here. Sorry, we cannot make it to the wedding of " + CONFIG.couple + ". Our duas are with you.");
+  }
+  nameEl.addEventListener("input", update);
+  countEl.addEventListener("change", update);
+  document.getElementById("rsvp").addEventListener("submit", function (e) { e.preventDefault(); });
+  update();
+})();
+</script>
